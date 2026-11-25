@@ -12,6 +12,7 @@ public abstract class BasePage {
 
     protected BasePage(WebDriver driver) {
         this.driver = driver;
+        // Todas las páginas reutilizan esta espera explícita configurada para el proyecto.
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(Config.waitSeconds()));
     }
 }

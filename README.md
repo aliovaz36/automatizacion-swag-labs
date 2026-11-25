@@ -58,7 +58,3 @@ flowchart TD
 - Los datos de acceso se mantienen fuera del código, en un CSV de JUnit 5.
 - Se automatizan los cinco casos definidos en el informe; no se incluye el flujo de compra porque no forma parte de esa selección.
 - Las capturas automáticas se guardan únicamente si una prueba falla.
-
-## Publicación en GitHub
-
-Después de revisar el proyecto, crear un repositorio y publicar esta carpeta. Agregar a esta sección la URL del repositorio y el commit efectivamente entregado; no se incluye un enlace hasta que la publicación se haya realizado.

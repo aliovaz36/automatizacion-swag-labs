@@ -18,14 +18,17 @@ class LoginTests extends BaseTest {
     @CsvFileSource(resources = "/data/login-cases.csv", numLinesToSkip = 1)
     @DisplayName("TC01-TC03 — validaciones de inicio de sesión")
     void loginCases(String caseId, String username, String password, String expectedMessage) {
+        // JUnit ejecuta este método una vez por cada fila de casos del CSV.
         LoginPage loginPage = new LoginPage(driver);
         loginPage.enterCredentials(username, password);
 
         if ("TC01".equals(caseId)) {
+            // TC01 es positivo: valida que las credenciales permitan entrar al inventario.
             InventoryPage inventoryPage = loginPage.submitValidLogin();
             assertTrue(inventoryPage.isInventoryVisible(), "El inventario debe mostrarse");
             assertTrue(inventoryPage.containsProduct("Sauce Labs Backpack"), "Debe aparecer el producto de referencia");
         } else {
+            // TC02 y TC03 son negativos: deben mostrar el error esperado y negar el acceso.
             loginPage.submitLogin();
             assertEquals(expectedMessage, loginPage.errorText());
             assertTrue(loginPage.inventoryIsAbsent(), "No se debe acceder al inventario");

@@ -19,16 +19,20 @@ class InventoryTests extends BaseTest {
     @Test
     @DisplayName("TC04 - Agregar y quitar un producto del carrito")
     void addAndRemoveProductFromCart() {
+        // Inicia sesión y agrega la mochila; el Page Object espera el cambio de estado.
         InventoryPage inventoryPage = loginAsStandardUser();
         inventoryPage.addBackpackToCart();
 
+        // Confirma que el botón cambió y que el contador refleja un producto.
         assertEquals("Remove", inventoryPage.backpackActionText());
         assertEquals(1, inventoryPage.cartItemCount());
 
+        // Comprueba que el producto agregado también aparezca dentro del carrito.
         CartPage cartPage = inventoryPage.openCart();
         assertEquals(1, cartPage.itemCount());
         assertTrue(cartPage.containsProduct("Sauce Labs Backpack"));
 
+        // Lo quita y verifica que tanto el catálogo como el carrito queden vacíos.
         inventoryPage = cartPage.continueShopping();
         inventoryPage.removeBackpackFromCart();
         assertEquals("Add to cart", inventoryPage.backpackActionText());
@@ -39,11 +43,13 @@ class InventoryTests extends BaseTest {
     @Test
     @DisplayName("TC05 — ordenar productos por precio de menor a mayor")
     void sortProductsByPriceAscending() {
+        // Ordena el catálogo y lee los nombres y precios visibles para compararlos.
         InventoryPage inventoryPage = loginAsStandardUser();
         inventoryPage.sortByPriceAscending();
 
         List<String> names = inventoryPage.productNames();
         List<String> prices = inventoryPage.productPriceTexts();
+        // Verifica el orden completo y los productos en los extremos indicados en el informe.
         assertEquals(
                 List.of("$7.99", "$9.99", "$15.99", "$15.99", "$29.99", "$49.99"),
                 prices,
@@ -60,6 +66,7 @@ class InventoryTests extends BaseTest {
     }
 
     private InventoryPage loginAsStandardUser() {
+        // Reutiliza el inicio de sesión estándar para TC04 y TC05.
         LoginPage loginPage = new LoginPage(driver);
         loginPage.enterCredentials("standard_user", "secret_sauce");
         return loginPage.submitValidLogin();

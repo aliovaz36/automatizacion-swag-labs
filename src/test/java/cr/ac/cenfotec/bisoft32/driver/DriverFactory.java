@@ -12,10 +12,12 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.util.Locale;
 
+// Centraliza la creación del navegador para que las pruebas no instancien drivers directamente.
 public final class DriverFactory {
     private DriverFactory() { }
 
     public static WebDriver create() {
+        // El navegador se selecciona desde config.properties.
         String browser = Config.get("browser").toLowerCase(Locale.ROOT);
         return switch (browser) {
             case "chrome" -> new ChromeDriver(chromeOptions());
@@ -28,6 +30,7 @@ public final class DriverFactory {
 
     private static ChromeOptions chromeOptions() {
         ChromeOptions options = new ChromeOptions();
+        // Headless ejecuta Chrome sin mostrar una ventana gráfica.
         if (Boolean.parseBoolean(Config.get("headless"))) options.addArguments("--headless=new");
         options.addArguments("--window-size=1440,1000");
         return options;
