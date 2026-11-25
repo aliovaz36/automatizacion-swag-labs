@@ -1,0 +1,6 @@
+ID,Perfil,Verificacion,Esperado,Observado,Severidad,Prioridad,Evidencia
+D-01,problem_user,Imagen por producto,"Una imagen distinta y correspondiente a cada producto","Los seis productos referencian /assets/sl-404-Cq1a9k9X.jpg",Media,Alta,D01-problem-user-imagenes.png
+D-02,problem_user,Orden precio ascendente,"$7.99; $9.99; $15.99; $15.99; $29.99; $49.99","$29.99; $9.99; $15.99; $49.99; $7.99; $15.99",Alta,Alta,D02-problem-user-ordenamiento.png
+D-03,visual_user,Consistencia de precios,"Precios iguales al catálogo estándar y estables entre sesiones","Sesión A: $77.15; $44.86; $37.84; $59.96; $13.37; $49.59. Sesión B: $38.97; $79.03; $70.20; $45.81; $53.74; $57.10",Alta,Alta,D03-visual-user-precios.png
+D-04,performance_glitch_user,Carga de los seis productos,"Tiempo comparable al perfil estándar; el plan no define umbral","standard_user: 67; 77; 46 ms. performance_glitch_user: 5056; 5056; 5044 ms.",Media,Media,D04-performance-glitch.png
+D-05,error_user,Abrir detalle de Sauce Labs Backpack,"Detalle visible sin excepción JavaScript","Consola: Error: This component failed to render!",Media,Media,"D05-error-user-detalle.png; D05-console-error.txt"

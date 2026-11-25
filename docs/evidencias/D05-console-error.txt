@@ -1,0 +1,20 @@
+Swag Labs - evidencia D-05
+Fecha: 2026-11-24
+Perfil: error_user
+Acción: abrir “View details for Sauce Labs Backpack”
+URL final: https://www.saucedemo.com/inventory-item.html?id=4
+Resultado: la vista de detalle se muestra, pero la consola registra:
+
+Error: This component failed to render!
+    at nf (https://www.saucedemo.com/assets/index-DnLqFcJI.js:573:50580)
+    at xo (https://www.saucedemo.com/assets/index-DnLqFcJI.js:15:47498)
+    at pc (https://www.saucedemo.com/assets/index-DnLqFcJI.js:15:69997)
+    at Ac (https://www.saucedemo.com/assets/index-DnLqFcJI.js:15:80265)
+    at Mu (https://www.saucedemo.com/assets/index-DnLqFcJI.js:15:115680)
+    at ku (https://www.saucedemo.com/assets/index-DnLqFcJI.js:15:114761)
+    at Ou (https://www.saucedemo.com/assets/index-DnLqFcJI.js:15:114599)
+    at gu (https://www.saucedemo.com/assets/index-DnLqFcJI.js:15:111465)
+    at cd (https://www.saucedemo.com/assets/index-DnLqFcJI.js:15:122985)
+    at MessagePort.O (https://www.saucedemo.com/assets/index-DnLqFcJI.js:8:17047)
+
+Entorno exploratorio: Chrome 150.0.7871.250 (Electron 43.8.9), viewport 860 x 642.
